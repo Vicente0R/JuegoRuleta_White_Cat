@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package juego_ruleta;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,6 +11,16 @@ package juego_ruleta;
  */
 public class Ruleta {
 
+    ArrayList<Casilla> casillas = new ArrayList<>();
+    Casilla pares = new Casilla();
+    Casilla impares = new Casilla();
+    
+    public Ruleta(){
+        casillas.add(pares);
+        casillas.add(impares);
+    }
+    
+    
     public void calcularValorApuesta(int x, int y) {
         //FILA INFERIOR CON NÚMEROS 1,4,7,10,13....x >= 62 && x <= 562
         if (y >= 130 && y <= 188) {
