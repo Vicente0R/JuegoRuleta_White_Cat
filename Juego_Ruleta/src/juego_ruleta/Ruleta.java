@@ -31,9 +31,27 @@ public class Ruleta {
     }
 
     public void girar() {
+        //Aleatoriedad 
         //Haciendo un random para obtener número entre 0 y 36
         int resultadoObtenido = (int)(Math.random() * 37);
         JOptionPane.showMessageDialog(null, resultadoObtenido);
+        
+        //Gestión de premios o pagos
+        //Lógica inicial para cálculo de pago de apuesta
+        boolean par = (resultadoObtenido % 2 == 0);
+        boolean impar = (resultadoObtenido % 2 != 0);
+        if (resultadoObtenido == 0){
+
+        }
+        else if (par){
+            System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));            
+        }
+        else if (impar){
+            System.out.println("Pago (casilla impar): " + (2 * impares.getApuesta()));            
+        }
+        else{
+            //System.out.println("Premio para otro número");
+        }
     }
 
     public void calcularValorApuesta(int x, int y) {
@@ -175,14 +193,14 @@ public class Ruleta {
             if (x >= 314 && x <= 396) {
                 System.out.println("Apuesta a la casilla plena negra");
             }
-            //Impares
+            //Pares
             if (x >= 146 && x <= 228) {
-                impares.incrementarFicha();
+                pares.incrementarFicha();
                 //System.out.println("Apuesta a la casilla impares");
             }
-            //Pares
+            //Impares
             if (x >= 397 && x <= 478) {
-                pares.incrementarFicha();
+                impares.incrementarFicha();
                 //System.out.println("Apuesta a la casilla pares");
             }
             //1 al 18

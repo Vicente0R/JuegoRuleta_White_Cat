@@ -18,4 +18,8 @@ public class Casilla {
     public String toString(){
         return "Apuesta: " + apuesta;
     }
+    
+    public int getApuesta(){
+        return apuesta;
+    }
 }
