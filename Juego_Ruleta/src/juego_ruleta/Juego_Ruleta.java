@@ -14,6 +14,8 @@ public class Juego_Ruleta {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        VentanaRuleta window = new VentanaRuleta();
+        window.setVisible(true);
         // TODO code application logic here
     }
     
