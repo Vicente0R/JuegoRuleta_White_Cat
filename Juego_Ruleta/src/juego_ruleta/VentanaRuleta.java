@@ -29,6 +29,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        girarRuleta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +54,13 @@ public class VentanaRuleta extends javax.swing.JFrame {
 
         jLabel3.setText("Coordendas:");
 
+        girarRuleta.setText("GIRAR RULETA");
+        girarRuleta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                girarRuletaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -63,7 +71,9 @@ public class VentanaRuleta extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(girarRuleta))
                     .addComponent(jLabel1))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
@@ -73,10 +83,12 @@ public class VentanaRuleta extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel2))
+                    .addComponent(girarRuleta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,6 +110,10 @@ public class VentanaRuleta extends javax.swing.JFrame {
         ruleta.calcularValorApuesta(x, y);
         ruleta.mostrarApuestaRealizada();
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void girarRuletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girarRuletaActionPerformed
+        ruleta.girar();
+    }//GEN-LAST:event_girarRuletaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,6 +151,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
     }
     Ruleta ruleta = new Ruleta();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton girarRuleta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

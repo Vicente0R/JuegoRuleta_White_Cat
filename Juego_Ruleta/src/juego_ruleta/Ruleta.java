@@ -5,6 +5,7 @@
 package juego_ruleta;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,23 +16,32 @@ public class Ruleta {
     ArrayList<Casilla> casillas = new ArrayList<>();
     Casilla pares = new Casilla();
     Casilla impares = new Casilla();
+    Casilla uno = new Casilla();
 
     public Ruleta() {
         casillas.add(pares);
         casillas.add(impares);
+        casillas.add(uno);//Aquí ir agregando para el resto de las casillas
     }
-    
-    public void mostrarApuestaRealizada(){
-        for(Casilla casilla : casillas){
+
+    public void mostrarApuestaRealizada() {
+        for (Casilla casilla : casillas) {
             System.out.println(casilla);
         }
+    }
+
+    public void girar() {
+        //Haciendo un random para obtener número entre 0 y 36
+        int resultadoObtenido = (int)(Math.random() * 37);
+        JOptionPane.showMessageDialog(null, resultadoObtenido);
     }
 
     public void calcularValorApuesta(int x, int y) {
         //FILA INFERIOR CON NÚMEROS 1,4,7,10,13....x >= 62 && x <= 562
         if (y >= 130 && y <= 188) {
             if (x >= 62 && x <= 102) {
-                System.out.println("Apuesta al 1");
+                uno.incrementarFicha();
+                //System.out.println("Apuesta al 1");
             }
             if (x >= 102 && x <= 145) {
                 System.out.println("Apuesta al 4");
