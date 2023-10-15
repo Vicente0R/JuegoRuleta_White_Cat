@@ -17,7 +17,8 @@ public class Ruleta {
     Casilla pares = new Casilla();
     Casilla impares = new Casilla();
     Casilla uno = new Casilla();
-
+    int fichas = 8; // Momentaneo para simular que inicio con 8 fichas
+        
     public Ruleta() {
         casillas.add(pares);
         casillas.add(impares);
@@ -33,24 +34,28 @@ public class Ruleta {
     public void girar() {
         //Aleatoriedad 
         //Haciendo un random para obtener número entre 0 y 36
-        int resultadoObtenido = (int)(Math.random() * 37);
+        int resultadoObtenido = (int) (Math.random() * 37);
         JOptionPane.showMessageDialog(null, resultadoObtenido);
-        
+
         //Gestión de premios o pagos
         //Lógica inicial para cálculo de pago de apuesta
         boolean par = (resultadoObtenido % 2 == 0);
         boolean impar = (resultadoObtenido % 2 != 0);
-        if (resultadoObtenido == 0){
+        if (resultadoObtenido == 0) {
 
-        }
-        else if (par){
-            System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));            
-        }
-        else if (impar){
-            System.out.println("Pago (casilla impar): " + (2 * impares.getApuesta()));            
-        }
-        else{
+        } else if (par) {
+            //System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));
+            fichas = fichas + (2 * pares.getApuesta());
+        } else if (impar) {
+            //System.out.println("Pago (casilla impar): " + (2 * impares.getApuesta()));
+            fichas = fichas + (2 * impares.getApuesta());
+        } else {
             //System.out.println("Premio para otro número");
+        }
+
+        //Gestión apuestas reinicio
+        for (Casilla casilla : casillas) {
+            casilla.setApuesta(0);
         }
     }
 

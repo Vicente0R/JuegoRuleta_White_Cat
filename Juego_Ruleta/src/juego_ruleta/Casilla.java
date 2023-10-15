@@ -9,17 +9,25 @@ package juego_ruleta;
  * @author Stefan2
  */
 public class Casilla {
+
     int apuesta;
-    
-    public void incrementarFicha(){
+
+    public Casilla() {
+        this.apuesta = 0;
+    }
+
+    public void incrementarFicha() {
         apuesta++;
     }
     
-    public String toString(){
+    public String toString() {
         return "Apuesta: " + apuesta;
     }
     
-    public int getApuesta(){
+    public int setApuesta(int apuesta){
+        return this.apuesta = apuesta;
+    }
+    public int getApuesta() {
         return apuesta;
     }
 }

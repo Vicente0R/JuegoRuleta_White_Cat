@@ -30,6 +30,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         girarRuleta = new javax.swing.JButton();
+        cantFichas = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,6 +62,8 @@ public class VentanaRuleta extends javax.swing.JFrame {
             }
         });
 
+        cantFichas.setText("#Fichas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -69,9 +72,12 @@ public class VentanaRuleta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cantFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(girarRuleta))
                     .addComponent(jLabel1))
@@ -84,9 +90,12 @@ public class VentanaRuleta extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cantFichas))
                     .addComponent(girarRuleta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -108,11 +117,14 @@ public class VentanaRuleta extends javax.swing.JFrame {
         int x = evt.getX();
         int y = evt.getY();
         ruleta.calcularValorApuesta(x, y);
-        ruleta.mostrarApuestaRealizada();
+        //ruleta.mostrarApuestaRealizada();
+        cantFichas.setText("Fichas: " + ruleta.getFichas());
+        
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void girarRuletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girarRuletaActionPerformed
         ruleta.girar();
+        cantFichas.setText("Fichas: " + ruleta.getFichas());
     }//GEN-LAST:event_girarRuletaActionPerformed
 
     /**
@@ -151,6 +163,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
     }
     Ruleta ruleta = new Ruleta();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel cantFichas;
     private javax.swing.JButton girarRuleta;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
