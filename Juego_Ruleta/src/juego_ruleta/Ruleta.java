@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package juego_ruleta;
+
 import java.util.ArrayList;
 
 /**
@@ -14,13 +15,18 @@ public class Ruleta {
     ArrayList<Casilla> casillas = new ArrayList<>();
     Casilla pares = new Casilla();
     Casilla impares = new Casilla();
-    
-    public Ruleta(){
+
+    public Ruleta() {
         casillas.add(pares);
         casillas.add(impares);
     }
     
-    
+    public void mostrarApuestaRealizada(){
+        for(Casilla casilla : casillas){
+            System.out.println(casilla);
+        }
+    }
+
     public void calcularValorApuesta(int x, int y) {
         //FILA INFERIOR CON NÚMEROS 1,4,7,10,13....x >= 62 && x <= 562
         if (y >= 130 && y <= 188) {
@@ -151,19 +157,23 @@ public class Ruleta {
 
         //PRIMERA FILA DEL TABLERO
         if (y >= 236 && y <= 276) {
+            //Todas las casillas rojas (Pleno rojo)
             if (x >= 230 && x <= 310) {
                 System.out.println("Apuesta a la casilla pleno rojo");
             }
+            //Todas las casillas negras (Pleno negro)
             if (x >= 314 && x <= 396) {
                 System.out.println("Apuesta a la casilla plena negra");
             }
             //Impares
             if (x >= 146 && x <= 228) {
-                System.out.println("Apuesta a la casilla impares");
+                impares.incrementarFicha();
+                //System.out.println("Apuesta a la casilla impares");
             }
             //Pares
             if (x >= 397 && x <= 478) {
-                System.out.println("Apuesta a la casilla pares");
+                pares.incrementarFicha();
+                //System.out.println("Apuesta a la casilla pares");
             }
             //1 al 18
             if (x >= 62 && x <= 146) {

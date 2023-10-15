@@ -96,6 +96,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
         int x = evt.getX();
         int y = evt.getY();
         ruleta.calcularValorApuesta(x, y);
+        ruleta.mostrarApuestaRealizada();
     }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
