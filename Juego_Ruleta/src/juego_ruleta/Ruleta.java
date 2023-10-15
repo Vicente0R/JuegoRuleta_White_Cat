@@ -13,12 +13,26 @@ import javax.swing.JOptionPane;
  */
 public class Ruleta {
 
+    /**
+     * @return the fichas
+     */
+    public int getFichas() {
+        return fichas;
+    }
+
+    /**
+     * @param fichas the fichas to set
+     */
+    public void setFichas(int fichas) {
+        this.fichas = fichas;
+    }
+
     ArrayList<Casilla> casillas = new ArrayList<>();
     Casilla pares = new Casilla();
     Casilla impares = new Casilla();
     Casilla uno = new Casilla();
-    int fichas = 8; // Momentaneo para simular que inicio con 8 fichas
-        
+    private int fichas = 8; // Momentaneo para simular que inicio con 8 fichas
+    
     public Ruleta() {
         casillas.add(pares);
         casillas.add(impares);
@@ -45,10 +59,10 @@ public class Ruleta {
 
         } else if (par) {
             //System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));
-            fichas = fichas + (2 * pares.getApuesta());
+            setFichas(getFichas() + (2 * pares.getApuesta()));
         } else if (impar) {
             //System.out.println("Pago (casilla impar): " + (2 * impares.getApuesta()));
-            fichas = fichas + (2 * impares.getApuesta());
+            setFichas(getFichas() + (2 * impares.getApuesta()));
         } else {
             //System.out.println("Premio para otro número");
         }
@@ -201,12 +215,12 @@ public class Ruleta {
             //Pares
             if (x >= 146 && x <= 228) {
                 pares.incrementarFicha();
-                //System.out.println("Apuesta a la casilla impares");
+                System.out.println("Apuesta a la casilla pares");
             }
             //Impares
             if (x >= 397 && x <= 478) {
                 impares.incrementarFicha();
-                //System.out.println("Apuesta a la casilla pares");
+                System.out.println("Apuesta a la casilla impares");
             }
             //1 al 18
             if (x >= 62 && x <= 146) {
@@ -217,5 +231,7 @@ public class Ruleta {
                 System.out.println("Apuesta a la casilla 19 al 36");
             }
         }
+        fichas--;
     }
+    
 }

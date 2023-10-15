@@ -62,7 +62,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
             }
         });
 
-        cantFichas.setText("#Fichas");
+        cantFichas.setText("#Fichas: 8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,8 +118,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
         int y = evt.getY();
         ruleta.calcularValorApuesta(x, y);
         //ruleta.mostrarApuestaRealizada();
-        cantFichas.setText("Fichas: " + ruleta.getFichas());
-        
+        cantFichas.setText("Fichas: " + ruleta.getFichas()); 
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void girarRuletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girarRuletaActionPerformed
