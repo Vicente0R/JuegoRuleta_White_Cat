@@ -30,4 +30,8 @@ public class Casilla {
     public int getApuesta() {
         return apuesta;
     }
+    
+    public int calcularGanancias(){
+        return 0;
+    }
 }

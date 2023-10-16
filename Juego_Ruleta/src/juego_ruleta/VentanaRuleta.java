@@ -62,7 +62,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
             }
         });
 
-        cantFichas.setText("#Fichas: 8");
+        cantFichas.setText("Fichas: 15");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

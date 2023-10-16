@@ -101,7 +101,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="cantFichas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="#Fichas: 8"/>
+        <Property name="text" type="java.lang.String" value="Fichas: 15"/>
       </Properties>
     </Component>
   </SubComponents>
