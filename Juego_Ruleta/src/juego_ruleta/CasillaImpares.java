@@ -9,7 +9,9 @@ package juego_ruleta;
  * @author Stefan2
  */
 public class CasillaImpares extends Casilla {
-
+    public CasillaImpares() {
+    }
+    
     @Override
     public int calcularGanancias() {
         return 2 * getApuesta(); 

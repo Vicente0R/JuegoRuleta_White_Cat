@@ -8,6 +8,12 @@ package juego_ruleta;
  *
  * @author Stefan2
  */
-public class CasillaRojo extends Casilla{
-    
+public class CasillaRojo extends Casilla {
+    public CasillaRojo() {
+    }
+    @Override
+    public int calcularGanancias() {
+        return 2 * getApuesta();
+    }
+
 }

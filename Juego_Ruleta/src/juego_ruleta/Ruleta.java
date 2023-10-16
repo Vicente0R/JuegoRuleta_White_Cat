@@ -13,6 +13,12 @@ import javax.swing.JOptionPane;
  */
 public class Ruleta {
 
+    ArrayList<Casilla> casillas = new ArrayList<>();
+    Casilla pares = new CasillaPares();
+    Casilla impares = new CasillaImpares();
+    //Casilla uno = new Casilla();
+    private int fichas = 15; // Momentaneo para simular que inicio con 15 fichas
+    
     /**
      * @return the fichas
      */
@@ -26,13 +32,7 @@ public class Ruleta {
     public void setFichas(int fichas) {
         this.fichas = fichas;
     }
-
-    ArrayList<Casilla> casillas = new ArrayList<>();
-    Casilla pares = new CasillaPares();
-    Casilla impares = new CasillaImpares();
-    //Casilla uno = new Casilla();
-    private int fichas = 15; // Momentaneo para simular que inicio con 8 fichas
-
+    
     public Ruleta() {
         casillas.add(pares);
         casillas.add(impares);
@@ -65,7 +65,7 @@ public class Ruleta {
         
         /*SOLO DESCOMENTAR MI LINEA 68 PARA PRUEBAS
         PARA NO ESTAR LANZANDO RULETA N VECES HASTA OBTENER UNA CASILLA PLENO*/
-        //resultadoObtenido = 4; //Solo para probar forzamos el valor 
+        resultadoObtenido = 4; //Solo para probar forzamos el valor 
         //obtenido en la ruleta
         
         JOptionPane.showMessageDialog(null, resultadoObtenido);
@@ -75,7 +75,7 @@ public class Ruleta {
         boolean par = (resultadoObtenido % 2 == 0);
         boolean impar = (resultadoObtenido % 2 != 0);
         if (resultadoObtenido == 0) {
-
+            
         } else if (par) {
             //System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));
             //setFichas(getFichas() + (2 * pares.getApuesta()));

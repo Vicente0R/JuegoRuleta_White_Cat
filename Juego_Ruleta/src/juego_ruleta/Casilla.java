@@ -10,7 +10,7 @@ package juego_ruleta;
  */
 public class Casilla {
 
-    int apuesta;
+    protected int apuesta;
 
     public Casilla() {
         this.apuesta = 0;
