@@ -13,7 +13,10 @@ public class VentanaRuleta extends javax.swing.JFrame {
     /**
      * Creates new form VentanaRuleta
      */
+    private Juego_de_la_Ruleta ruleta;
+    
     public VentanaRuleta() {
+        ruleta = new Juego_de_la_Ruleta();
         initComponents();
     }
 
@@ -160,7 +163,6 @@ public class VentanaRuleta extends javax.swing.JFrame {
             }
         });
     }
-    Ruleta ruleta = new Ruleta();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cantFichas;
     private javax.swing.JButton girarRuleta;

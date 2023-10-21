@@ -11,17 +11,18 @@ import javax.swing.JOptionPane;
  *
  * @author Stefan2
  */
-public class Ruleta {
+public class Juego_de_la_Ruleta implements Juego_Casino {
 
-    ArrayList<Casilla> casillas = new ArrayList<>();
+    protected ArrayList<Casilla> casillas = new ArrayList<>();
     Casilla pares = new CasillaPares();
     Casilla impares = new CasillaImpares();
     //Casilla uno = new Casilla();
     private int fichas = 15; // Momentaneo para simular que inicio con 15 fichas
-    
+
     /**
      * @return the fichas
      */
+    @Override
     public int getFichas() {
         return fichas;
     }
@@ -29,29 +30,16 @@ public class Ruleta {
     /**
      * @param fichas the fichas to set
      */
+    @Override
     public void setFichas(int fichas) {
         this.fichas = fichas;
     }
-    
-    public Ruleta() {
-        casillas.add(pares);
-        casillas.add(impares);
-        //casillas.add(uno);//Aquí ir agregando para el resto de las casillas
-        //Agregando objeto CasillaPleno
-        casillas.add(new CasillaPleno(1, "Rojo"));
-        casillas.add(new CasillaPleno(4, "Negro"));
-        casillas.add(new CasillaPleno(7, "Rojo"));
-        casillas.add(new CasillaPleno(10, "Negro"));
-        casillas.add(new CasillaPleno(13, "Negro"));
-        casillas.add(new CasillaPleno(16, "Rojo"));
-        casillas.add(new CasillaPleno(19, "Rojo"));
-        casillas.add(new CasillaPleno(22, "Negro"));
-        casillas.add(new CasillaPleno(25, "Rojo"));
-        casillas.add(new CasillaPleno(28, "Negro"));
-        casillas.add(new CasillaPleno(31, "Negro"));
-        casillas.add(new CasillaPleno(34, "Rojo"));
+
+    public Juego_de_la_Ruleta() {
+        aniadiendoCasillas();
     }
 
+    @Override
     public void mostrarApuestaRealizada() {
         for (Casilla casilla : casillas) {
             System.out.println(casilla);
@@ -62,12 +50,12 @@ public class Ruleta {
         //Aleatoriedad 
         //Haciendo un random para obtener número entre 0 y 36
         int resultadoObtenido = (int) (Math.random() * 37);
-        
+
         /*SOLO DESCOMENTAR MI LINEA 68 PARA PRUEBAS
         PARA NO ESTAR LANZANDO RULETA N VECES HASTA OBTENER UNA CASILLA PLENO*/
-        resultadoObtenido = 4; //Solo para probar forzamos el valor 
+        //resultadoObtenido = 4; //Solo para probar forzamos el valor 
         //obtenido en la ruleta
-        
+
         JOptionPane.showMessageDialog(null, resultadoObtenido);
 
         //Gestión de premios o pagos
@@ -75,7 +63,7 @@ public class Ruleta {
         boolean par = (resultadoObtenido % 2 == 0);
         boolean impar = (resultadoObtenido % 2 != 0);
         if (resultadoObtenido == 0) {
-            
+
         } else if (par) {
             //System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));
             //setFichas(getFichas() + (2 * pares.getApuesta()));
@@ -102,6 +90,7 @@ public class Ruleta {
         }
     }
 
+    @Override
     public void calcularValorApuesta(int x, int y) {
         //FILA INFERIOR CON NÚMEROS 1,4,7,10,13....x >= 62 && x <= 562
         if (y >= 130 && y <= 188) {
@@ -262,14 +251,32 @@ public class Ruleta {
                 System.out.println("Apuesta a la casilla 19 al 36");
             }
         }
-        if(fichas > 0){
+        if (fichas > 0) {
             fichas--;
-        }
-        else{
+        } else {
             System.out.println("Se quedó sin fichas!!");
             JOptionPane.showMessageDialog(null, "Se quedó sin fichas!!. Game Over!");
             System.exit(fichas);
         }
+    }
+
+    private void aniadiendoCasillas() {
+        casillas.add(pares);
+        casillas.add(impares);
+        //casillas.add(uno);//Aquí ir agregando para el resto de las casillas
+        //Agregando objeto CasillaPleno
+        casillas.add(new CasillaPleno(1, "Rojo"));
+        casillas.add(new CasillaPleno(4, "Negro"));
+        casillas.add(new CasillaPleno(7, "Rojo"));
+        casillas.add(new CasillaPleno(10, "Negro"));
+        casillas.add(new CasillaPleno(13, "Negro"));
+        casillas.add(new CasillaPleno(16, "Rojo"));
+        casillas.add(new CasillaPleno(19, "Rojo"));
+        casillas.add(new CasillaPleno(22, "Negro"));
+        casillas.add(new CasillaPleno(25, "Rojo"));
+        casillas.add(new CasillaPleno(28, "Negro"));
+        casillas.add(new CasillaPleno(31, "Negro"));
+        casillas.add(new CasillaPleno(34, "Rojo"));
     }
 
 }

@@ -8,8 +8,25 @@ package juego_ruleta;
  *
  * @author Stefan2
  */
-public class Juego_Ruleta {
+public interface Juego_Casino {
+    /**
+     *
+     * @param x
+     * @param y
+     */
+    public void calcularValorApuesta(int x, int y);
+    /**
+     * @return the fichas
+     */
+    public int getFichas();
+    /**
+     * @param fichas the fichas to set
+     */
+    public void setFichas(int fichas);
+    
+    public void mostrarApuestaRealizada();
 
+    
     /**
      * @param args the command line arguments
      */
@@ -18,5 +35,5 @@ public class Juego_Ruleta {
         window.setVisible(true);
         // TODO code application logic here
     }
-    
+
 }

@@ -16,22 +16,24 @@ public class Casilla {
         this.apuesta = 0;
     }
 
-    public void incrementarFicha() {
-        apuesta++;
-    }
-    
-    public String toString() {
-        return "Apuesta: " + apuesta;
-    }
-    
-    public int setApuesta(int apuesta){
+    public int setApuesta(int apuesta) {
         return this.apuesta = apuesta;
     }
+
     public int getApuesta() {
         return apuesta;
     }
-    
-    public int calcularGanancias(){
+
+    public void incrementarFicha() {
+        apuesta++;
+    }
+
+    @Override
+    public String toString() {
+        return "Apuesta: " + apuesta;
+    }
+
+    public int calcularGanancias() {
         return 0;
     }
 }
