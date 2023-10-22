@@ -19,7 +19,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
     private boolean apuestaRealizada;
 
     public VentanaRuleta() {
-        ruleta = new Juego_de_la_Ruleta(150);
+        ruleta = new Juego_de_la_Ruleta(15);
         initComponents();
         apuestaRealizada = false;
         setLocationRelativeTo(null);
