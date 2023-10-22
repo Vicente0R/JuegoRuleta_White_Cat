@@ -22,6 +22,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
         ruleta = new Juego_de_la_Ruleta(15);
         initComponents();
         apuestaRealizada = false;
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,8 +39,11 @@ public class VentanaRuleta extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         girarRuleta = new javax.swing.JButton();
         cantFichas = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Juego de la Ruleta");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/juego_ruleta/RuletaTablero.JPG"))); // NOI18N
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -71,13 +75,22 @@ public class VentanaRuleta extends javax.swing.JFrame {
 
         cantFichas.setText("Fichas: 15");
 
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Para realizar una apuesta debe hacer click en la \ncasilla a la que desee apostar (Por consola le \nindicará la casilla en la que  apostó)");
+        jScrollPane1.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -86,7 +99,9 @@ public class VentanaRuleta extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cantFichas, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(girarRuleta))
+                        .addComponent(girarRuleta)
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1))
                 .addContainerGap(95, Short.MAX_VALUE))
         );
@@ -95,7 +110,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -103,8 +118,9 @@ public class VentanaRuleta extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cantFichas))
-                    .addComponent(girarRuleta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                    .addComponent(girarRuleta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -180,5 +196,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
