@@ -10,6 +10,7 @@ package juego_ruleta;
  */
 public class CasillaImpares extends Casilla {
     public CasillaImpares() {
+        super.apuesta = 0;
     }
     
     @Override

@@ -13,7 +13,7 @@ public class Casilla {
     protected int apuesta;
 
     public Casilla() {
-        this.apuesta = 0;
+        apuesta = 0;
     }
 
     public int setApuesta(int apuesta) {

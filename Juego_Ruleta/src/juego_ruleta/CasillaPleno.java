@@ -17,6 +17,7 @@ public class CasillaPleno extends Casilla{
     public CasillaPleno(int numero, String color) {
         this.numero = numero;
         this.color = color;
+        super.apuesta = 0;
     }
 
     public int getNumero() {

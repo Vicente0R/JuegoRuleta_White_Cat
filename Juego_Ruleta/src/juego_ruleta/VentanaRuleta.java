@@ -16,7 +16,7 @@ public class VentanaRuleta extends javax.swing.JFrame {
     private Juego_de_la_Ruleta ruleta;
     
     public VentanaRuleta() {
-        ruleta = new Juego_de_la_Ruleta();
+        ruleta = new Juego_de_la_Ruleta(15);
         initComponents();
     }
 

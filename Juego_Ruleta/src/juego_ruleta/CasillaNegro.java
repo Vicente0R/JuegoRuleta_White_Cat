@@ -10,6 +10,7 @@ package juego_ruleta;
  */
 public class CasillaNegro extends Casilla{
     public CasillaNegro() {
+        super.apuesta = 0;
     }
     @Override
     public int calcularGanancias() {
