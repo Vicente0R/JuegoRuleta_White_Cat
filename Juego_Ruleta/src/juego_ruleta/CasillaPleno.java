@@ -6,7 +6,7 @@ package juego_ruleta;
 
 /**
  *
- * @author Stefan2
+ * @author Vicente Rico
  */
 public class CasillaPleno extends Casilla{
     //Números 0 al 36

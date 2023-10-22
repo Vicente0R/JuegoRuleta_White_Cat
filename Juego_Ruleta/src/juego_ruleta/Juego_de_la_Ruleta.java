@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Stefan2
+ * @author Vicente Rico
  */
 public class Juego_de_la_Ruleta implements Juego_Casino {
 
@@ -62,9 +62,7 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
         //Lógica inicial para cálculo de pago de apuesta
         boolean par = (resultadoObtenido % 2 == 0);
         boolean impar = (resultadoObtenido % 2 != 0);
-        if (resultadoObtenido == 0) {
-
-        } else if (par) {
+        if (par && resultadoObtenido != 0) {
             //System.out.println("Pago (casilla par): " + (2 * pares.getApuesta()));
             //setFichas(getFichas() + (2 * pares.getApuesta()));
             fichas = fichas + pares.calcularGanancias();
@@ -73,7 +71,7 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
             //setFichas(getFichas() + (2 * impares.getApuesta()));
             fichas = fichas + impares.calcularGanancias();
         } else {
-            //System.out.println("Premio para otro número");
+            //System.out.println("Otra opción");
         }
 
         //Gestión apuestas más reinicio
@@ -252,6 +250,7 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
         if (y >= 15 && y <= 188) {
             if (x >= 0 && x <= 60) {
                 System.out.println("Apuesta a la casilla 0");
+                incrementarFichaEnCasillaDelTablero(38);
             }
         }
 
@@ -300,7 +299,6 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
     private void aniadiendoCasillas() {
         casillas.add(pares);
         casillas.add(impares);
-        //Aquí ir agregando para el resto de las casillas
         //Agregando objeto CasillaPleno, para casillas de mi tablero
         casillas.add(new CasillaPleno(1, "Rojo"));
         casillas.add(new CasillaPleno(4, "Negro"));
@@ -338,6 +336,7 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
         casillas.add(new CasillaPleno(30, "Rojo"));
         casillas.add(new CasillaPleno(33, "Negro"));
         casillas.add(new CasillaPleno(36, "Rojo"));
+        casillas.add(new CasillaPleno(0, "Verde"));
     }
 
 }
