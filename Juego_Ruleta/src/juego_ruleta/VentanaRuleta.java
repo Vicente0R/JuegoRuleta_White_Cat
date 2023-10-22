@@ -4,6 +4,8 @@
  */
 package juego_ruleta;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Vicente Rico
@@ -14,10 +16,12 @@ public class VentanaRuleta extends javax.swing.JFrame {
      * Creates new form VentanaRuleta
      */
     private Juego_de_la_Ruleta ruleta;
-    
+    private boolean apuestaRealizada;
+
     public VentanaRuleta() {
         ruleta = new Juego_de_la_Ruleta(15);
         initComponents();
+        apuestaRealizada = false;
     }
 
     /**
@@ -121,12 +125,19 @@ public class VentanaRuleta extends javax.swing.JFrame {
         int y = evt.getY();
         ruleta.calcularValorApuesta(x, y);
         //ruleta.mostrarApuestaRealizada();
-        cantFichas.setText("Fichas: " + ruleta.getFichas()); 
+        cantFichas.setText("Fichas: " + ruleta.getFichas());
+        apuestaRealizada = true;
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void girarRuletaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_girarRuletaActionPerformed
-        ruleta.girar();
-        cantFichas.setText("Fichas: " + ruleta.getFichas());
+        if (apuestaRealizada == true) {
+            ruleta.girar();
+            cantFichas.setText("Fichas: " + ruleta.getFichas());
+        }else{
+            JOptionPane.showMessageDialog(null, "Debe realizar una apuesta"
+                    + " antes de tirar o girar la ruleta");
+        }
+        apuestaRealizada = false;
     }//GEN-LAST:event_girarRuletaActionPerformed
 
     /**

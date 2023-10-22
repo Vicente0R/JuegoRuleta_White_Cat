@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
 public class Juego_de_la_Ruleta implements Juego_Casino {
 
     protected ArrayList<Casilla> casillas = new ArrayList<>();
-    Casilla pares = new CasillaPares();
-    Casilla impares = new CasillaImpares();
+    CasillaPares pares = new CasillaPares();
+    CasillaImpares impares = new CasillaImpares();
     //Casilla uno = new Casilla();
     CasillaRoja rojas = new CasillaRoja();
     CasillaNegra negras = new CasillaNegra();
