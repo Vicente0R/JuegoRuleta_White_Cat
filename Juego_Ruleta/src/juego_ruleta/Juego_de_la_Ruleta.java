@@ -17,12 +17,16 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
     Casilla pares = new CasillaPares();
     Casilla impares = new CasillaImpares();
     //Casilla uno = new Casilla();
-    private int fichas; 
-    
+    CasillaRojo rojos = new CasillaRojo();
+    CasillaNegro negros = new CasillaNegro();
+
+    private int fichas;
+
     public Juego_de_la_Ruleta(int fichas) {
         aniadiendoCasillas();
         this.fichas = fichas;
     }
+
     /**
      * @return the fichas
      */
@@ -55,7 +59,6 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
         PARA NO ESTAR LANZANDO RULETA N VECES HASTA OBTENER UNA CASILLA PLENO*/
         //resultadoObtenido = 4; //Solo para probar forzamos el valor 
         //obtenido en la ruleta
-
         JOptionPane.showMessageDialog(null, resultadoObtenido);
 
         //Gestión de premios o pagos
@@ -74,6 +77,13 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
             //System.out.println("Otra opción");
         }
 
+        //System.out.println(resultadoObtenido);
+        if (negros.esCasillaColorNegro(resultadoObtenido)
+                && negros.getApuesta() != 0) {
+            //System.out.println("esta entrando");
+            fichas = fichas + negros.calcularGanancias();
+            negros.setApuesta(0);
+        }
         //Gestión apuestas más reinicio
         for (Casilla casilla : casillas) {
             if (casilla instanceof CasillaPleno) {
@@ -95,48 +105,37 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
             if (x >= 62 && x <= 102) {
                 System.out.println("Apuesta al 1");
                 incrementarFichaEnCasillaDelTablero(2);
-            }
-            else if (x >= 102 && x <= 145) {
+            } else if (x >= 102 && x <= 145) {
                 System.out.println("Apuesta al 4");
                 incrementarFichaEnCasillaDelTablero(3);
-            }
-            else if (x >= 145 && x <= 185) {
+            } else if (x >= 145 && x <= 185) {
                 System.out.println("Apuesta al 7");
                 incrementarFichaEnCasillaDelTablero(4);
-            }
-            else if (x >= 185 && x <= 229) {
+            } else if (x >= 185 && x <= 229) {
                 System.out.println("Apuesta al 10");
                 incrementarFichaEnCasillaDelTablero(5);
-            }
-            else if (x >= 229 && x <= 270) {
+            } else if (x >= 229 && x <= 270) {
                 System.out.println("Apuesta al 13");
                 incrementarFichaEnCasillaDelTablero(6);
-            }
-            else if (x >= 270 && x <= 312) {
+            } else if (x >= 270 && x <= 312) {
                 System.out.println("Apuesta al 16");
                 incrementarFichaEnCasillaDelTablero(7);
-            }
-            else if (x >= 312 && x <= 354) {
+            } else if (x >= 312 && x <= 354) {
                 System.out.println("Apuesta al 19");
-                incrementarFichaEnCasillaDelTablero(8);                
-            }
-            else if (x >= 354 && x <= 396) {
+                incrementarFichaEnCasillaDelTablero(8);
+            } else if (x >= 354 && x <= 396) {
                 System.out.println("Apuesta al 22");
                 incrementarFichaEnCasillaDelTablero(9);
-            }
-            else if (x >= 396 && x <= 438) {
+            } else if (x >= 396 && x <= 438) {
                 System.out.println("Apuesta al 25");
                 incrementarFichaEnCasillaDelTablero(10);
-            }
-            else if (x >= 438 && x <= 480) {
+            } else if (x >= 438 && x <= 480) {
                 System.out.println("Apuesta al 28");
                 incrementarFichaEnCasillaDelTablero(11);
-            }
-            else if (x >= 480 && x <= 521) {
+            } else if (x >= 480 && x <= 521) {
                 System.out.println("Apuesta al 31");
                 incrementarFichaEnCasillaDelTablero(12);
-            }
-            else if (x >= 521 && x <= 564) {
+            } else if (x >= 521 && x <= 564) {
                 System.out.println("Apuesta al 34");
                 incrementarFichaEnCasillaDelTablero(13);
             }
@@ -147,48 +146,37 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
             if (x >= 62 && x <= 102) {
                 System.out.println("Apuesta al 2");
                 incrementarFichaEnCasillaDelTablero(14);
-            }
-            else if (x >= 102 && x <= 145) {
+            } else if (x >= 102 && x <= 145) {
                 System.out.println("Apuesta al 5");
                 incrementarFichaEnCasillaDelTablero(15);
-            }
-            else if (x >= 145 && x <= 185) {
+            } else if (x >= 145 && x <= 185) {
                 System.out.println("Apuesta al 8");
                 incrementarFichaEnCasillaDelTablero(16);
-            }
-            else if (x >= 185 && x <= 229) {
+            } else if (x >= 185 && x <= 229) {
                 System.out.println("Apuesta al 11");
                 incrementarFichaEnCasillaDelTablero(17);
-            }
-            else if (x >= 229 && x <= 270) {
+            } else if (x >= 229 && x <= 270) {
                 System.out.println("Apuesta al 14");
                 incrementarFichaEnCasillaDelTablero(18);
-            }
-            else if (x >= 270 && x <= 312) {
+            } else if (x >= 270 && x <= 312) {
                 System.out.println("Apuesta al 17");
                 incrementarFichaEnCasillaDelTablero(19);
-            }
-            else if (x >= 312 && x <= 354) {
+            } else if (x >= 312 && x <= 354) {
                 System.out.println("Apuesta al 20");
                 incrementarFichaEnCasillaDelTablero(20);
-            }
-            else if (x >= 354 && x <= 396) {
+            } else if (x >= 354 && x <= 396) {
                 System.out.println("Apuesta al 23");
                 incrementarFichaEnCasillaDelTablero(21);
-            }
-            else if (x >= 396 && x <= 438) {
+            } else if (x >= 396 && x <= 438) {
                 System.out.println("Apuesta al 26");
                 incrementarFichaEnCasillaDelTablero(22);
-            }
-            else if (x >= 438 && x <= 480) {
+            } else if (x >= 438 && x <= 480) {
                 System.out.println("Apuesta al 29");
                 incrementarFichaEnCasillaDelTablero(23);
-            }
-            else if (x >= 480 && x <= 521) {
+            } else if (x >= 480 && x <= 521) {
                 System.out.println("Apuesta al 32");
                 incrementarFichaEnCasillaDelTablero(24);
-            }
-            else if (x >= 521 && x <= 564) {
+            } else if (x >= 521 && x <= 564) {
                 System.out.println("Apuesta al 35");
                 incrementarFichaEnCasillaDelTablero(25);
             }
@@ -199,48 +187,37 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
             if (x >= 62 && x <= 102) {
                 System.out.println("Apuesta al 3");
                 incrementarFichaEnCasillaDelTablero(26);
-            }
-            else if (x >= 102 && x <= 145) {
+            } else if (x >= 102 && x <= 145) {
                 System.out.println("Apuesta al 6");
                 incrementarFichaEnCasillaDelTablero(27);
-            }
-            else if (x >= 145 && x <= 185) {
+            } else if (x >= 145 && x <= 185) {
                 System.out.println("Apuesta al 9");
                 incrementarFichaEnCasillaDelTablero(28);
-            }
-            else if (x >= 185 && x <= 229) {
+            } else if (x >= 185 && x <= 229) {
                 System.out.println("Apuesta al 12");
                 incrementarFichaEnCasillaDelTablero(29);
-            }
-            else if (x >= 229 && x <= 270) {
+            } else if (x >= 229 && x <= 270) {
                 System.out.println("Apuesta al 15");
                 incrementarFichaEnCasillaDelTablero(30);
-            }
-            else if (x >= 270 && x <= 312) {
+            } else if (x >= 270 && x <= 312) {
                 System.out.println("Apuesta al 18");
                 incrementarFichaEnCasillaDelTablero(31);
-            }
-            else if (x >= 312 && x <= 354) {
+            } else if (x >= 312 && x <= 354) {
                 System.out.println("Apuesta al 21");
                 incrementarFichaEnCasillaDelTablero(32);
-            }
-            else if (x >= 354 && x <= 396) {
+            } else if (x >= 354 && x <= 396) {
                 System.out.println("Apuesta al 24");
                 incrementarFichaEnCasillaDelTablero(33);
-            }
-            else if (x >= 396 && x <= 438) {
+            } else if (x >= 396 && x <= 438) {
                 System.out.println("Apuesta al 27");
                 incrementarFichaEnCasillaDelTablero(34);
-            }
-            else if (x >= 438 && x <= 480) {
+            } else if (x >= 438 && x <= 480) {
                 System.out.println("Apuesta al 30");
                 incrementarFichaEnCasillaDelTablero(35);
-            }
-            else if (x >= 480 && x <= 521) {
+            } else if (x >= 480 && x <= 521) {
                 System.out.println("Apuesta al 33");
                 incrementarFichaEnCasillaDelTablero(36);
-            }
-            else if (x >= 521 && x <= 564) {
+            } else if (x >= 521 && x <= 564) {
                 System.out.println("Apuesta al 36");
                 incrementarFichaEnCasillaDelTablero(37);
             }
@@ -256,29 +233,26 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
 
         //PRIMERA FILA DEL TABLERO
         if (y >= 236 && y <= 276) {
-            //Todas las casillas rojas (Pleno rojo)
+            //Todas las casillas rojas 
             if (x >= 230 && x <= 310) {
                 System.out.println("Apuesta a la casilla rojo");
-            }
-            //Todas las casillas negras (Pleno negro)
+                fichas = fichas + rojos.calcularGanancias();
+            } //Todas las casillas negras 
             else if (x >= 314 && x <= 396) {
                 System.out.println("Apuesta a la casilla negra");
-            }
-            //Pares
+                negros.incrementarFicha();
+            } //Pares
             else if (x >= 146 && x <= 228) {
                 pares.incrementarFicha();
                 System.out.println("Apuesta a la casilla pares");
-            }
-            //Impares
+            } //Impares
             else if (x >= 397 && x <= 478) {
                 impares.incrementarFicha();
                 System.out.println("Apuesta a la casilla impares");
-            }
-            //1 al 18
+            } //1 al 18
             else if (x >= 62 && x <= 146) {
                 System.out.println("Apuesta a la casilla 1 al 18");
-            }
-            //19 al 36
+            } //19 al 36
             else if (x >= 478 && x <= 563) {
                 System.out.println("Apuesta a la casilla 19 al 36");
             }
