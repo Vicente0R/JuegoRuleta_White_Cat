@@ -17,8 +17,8 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
     Casilla pares = new CasillaPares();
     Casilla impares = new CasillaImpares();
     //Casilla uno = new Casilla();
-    CasillaRojo rojos = new CasillaRojo();
-    CasillaNegro negros = new CasillaNegro();
+    CasillaRoja rojas = new CasillaRoja();
+    CasillaNegra negras = new CasillaNegra();
 
     private int fichas;
 
@@ -78,12 +78,20 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
         }
 
         //System.out.println(resultadoObtenido);
-        if (negros.esCasillaColorNegro(resultadoObtenido)
-                && negros.getApuesta() != 0) {
-            //System.out.println("esta entrando");
-            fichas = fichas + negros.calcularGanancias();
-            negros.setApuesta(0);
+        if (negras.esCasillaColorNegro(resultadoObtenido)
+                && negras.getApuesta() != 0) {
+            //System.out.println("esta entrando negras");
+            fichas = fichas + negras.calcularGanancias();
+            //negras.setApuesta(0);
         }
+        else if (rojas.esCasillaColorRojo(resultadoObtenido)
+                && rojas.getApuesta() != 0) {
+            //System.out.println("esta entrando rojas");
+            fichas = fichas + rojas.calcularGanancias();
+            //rojas.setApuesta(0);
+        }
+        negras.setApuesta(0);
+        rojas.setApuesta(0);
         //Gestión apuestas más reinicio
         for (Casilla casilla : casillas) {
             if (casilla instanceof CasillaPleno) {
@@ -236,11 +244,11 @@ public class Juego_de_la_Ruleta implements Juego_Casino {
             //Todas las casillas rojas 
             if (x >= 230 && x <= 310) {
                 System.out.println("Apuesta a la casilla rojo");
-                fichas = fichas + rojos.calcularGanancias();
+                rojas.incrementarFicha();
             } //Todas las casillas negras 
             else if (x >= 314 && x <= 396) {
                 System.out.println("Apuesta a la casilla negra");
-                negros.incrementarFicha();
+                negras.incrementarFicha();
             } //Pares
             else if (x >= 146 && x <= 228) {
                 pares.incrementarFicha();

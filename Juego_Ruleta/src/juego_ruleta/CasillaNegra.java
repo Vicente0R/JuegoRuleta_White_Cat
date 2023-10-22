@@ -10,12 +10,12 @@ import java.util.ArrayList;
  *
  * @author Vicente Rico
  */
-public class CasillaNegro extends Casilla {
+public class CasillaNegra extends Casilla {
 
     protected ArrayList<Integer> numerosCasillasNegras = new ArrayList<>();
     public boolean valorComparado;
 
-    public CasillaNegro() {
+    public CasillaNegra() {
         super.apuesta = 0;
         inicializarNumerosCasillasNegras();
     }
